@@ -16,10 +16,16 @@ import { SpacexAPIService } from 'src/app/services/spacex-api.service';
   styleUrls: ['./rockets.component.css'],
   animations: [
     trigger('scrollCards', [
-      state('initial', style({ transform: 'scale(0.99)' })),
-      state('scroll', style({ transform: 'scale(0.95)' })),
-      transition('void => initial', animate('600ms 200ms ease-in-out')),
-      transition('initial <=> scroll', animate('600ms ease-in-out')),
+      state(
+        'initial',
+        style({ 'border-radius': '0px', transform: 'scale(1)' })
+      ),
+      state(
+        'scroll',
+        style({ 'border-radius': '30px', transform: 'scale(0.95)' })
+      ),
+      transition('void => initial', animate('500ms 200ms ease-in-out')),
+      transition('initial <=> scroll', animate('500ms ease-in-out')),
     ]),
   ],
 })
@@ -29,10 +35,10 @@ export class RocketsComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   scroll(): void {
-    if (window.scrollY < 300) {
+    if (window.scrollY === 0) {
       this.animationState = 'initial';
     }
-    if (window.scrollY >= 300) {
+    if (window.scrollY > 0) {
       this.animationState = 'scroll';
     }
   }
