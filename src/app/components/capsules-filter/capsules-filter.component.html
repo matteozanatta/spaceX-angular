@@ -1,0 +1,19 @@
+<div class="capsuleFilter">
+  <h2>Filters</h2>
+  <div class="capsuleFilter__status">
+    <h4>Capsule status</h4>
+    <div *ngFor="let status of capsules_status">
+      <div class="capsuleFilter__statusItem">
+        <label for="{{ status }}">{{ status }}</label>
+        <input
+          (change)="handleCheck($event, status)"
+          type="checkbox"
+          value="{{ status }}"
+          name="{{ status }}"
+          id="{{ status }}"
+          [checked]="status === 'active'"
+        />
+      </div>
+    </div>
+  </div>
+</div>

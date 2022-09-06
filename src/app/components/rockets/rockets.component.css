@@ -1,0 +1,86 @@
+.rocketContainer {
+  width: 100%;
+  height: 90vh;
+  background: url("https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg");
+  background-size: cover;
+  border-radius: 30px;
+  color: white;
+  padding: 40px;
+}
+
+.rocket__animation {
+  float: right;
+  position: absolute;
+  width: 30vw;
+  height: 80%;
+  right: 0;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  animation: upDown 1.5s infinite alternate;
+}
+
+.rocket__animationImage {
+  height: 80%;
+  margin: 0 auto;
+  filter: drop-shadow(0px 1px 1px rgb(23, 21, 82));
+}
+
+.rocket__animationFlame {
+  width: 100px;
+  height: 100px;
+  top: 0;
+  border-radius: 0 100% 100% 100%;
+  border: 1px solid rgb(255, 25, 25);
+  transform: rotate(-135deg);
+  background: linear-gradient(-45deg, orange, red);
+  animation: 0.1s flame infinite;
+  filter: blur(8px);
+  box-shadow: 1px 1px 10px rgb(105, 33, 33);
+  margin-left: 2px;
+}
+
+.rocket__animationFlame::after,
+.rocket__animationFlame::before {
+  content: "";
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  background: linear-gradient(-45deg, red, orange);
+  animation: 0.2s flame infinite;
+  transform: scale(0.8) rotate(-170deg);
+  border-radius: 100px 100px 0px 100px;
+  top: 0;
+}
+
+.rocket__animationFlame::before {
+  animation-duration: 0.09s;
+  transform: scale(0.9) rotate(-190deg);
+}
+
+@keyframes flame {
+  0% {
+    height: 100px;
+    width: 100px;
+  }
+  50% {
+    height: 95px;
+    width: 95px;
+  }
+  100% {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}

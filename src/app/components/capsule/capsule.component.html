@@ -1,0 +1,53 @@
+<div class="card">
+  <div *ngIf="capsule.serial" class="cardTitle">
+    <h3>Serial</h3>
+    <p>{{ capsule.serial }}</p>
+  </div>
+  <div *ngIf="capsule.status" class="status">
+    <h4>Status</h4>
+    <p
+      [ngClass]="{
+        green: capsule.status === 'active',
+        yellow: capsule.status === 'retired'
+      }"
+    >
+      {{ capsule.status }}
+    </p>
+  </div>
+  <div *ngIf="capsule.type" class="type">
+    <h3>Type</h3>
+    <p>{{ capsule.type }}</p>
+  </div>
+  <div *ngIf="capsule.dragon" class="dragon">
+    <h3>Dragon</h3>
+    <p>{{ capsule.dragon }}</p>
+  </div>
+  <div class="cardIcons">
+    <div [ngClass]="{ hide: capsule.reuse_count === 0 }" class="reuse_count">
+      <fa-icon [ngStyle]="{ color: 'green' }" [icon]="faRecycle"></fa-icon>
+      <h3>Reuse Count</h3>
+      <p>{{ capsule.reuse_count }}</p>
+    </div>
+    <div
+      [ngClass]="{ hide: capsule.water_landings === 0 }"
+      class="water_landings"
+    >
+      <fa-icon [ngStyle]="{ color: 'blue' }" [icon]="faWater"></fa-icon>
+      <h3>Water Landings</h3>
+      <p>{{ capsule.water_landings }}</p>
+    </div>
+    <div
+      [ngClass]="{ hide: capsule.land_landings === 0 }"
+      class="land_landings"
+    >
+      <fa-icon [ngStyle]="{ color: 'red' }" [icon]="faExplosion"></fa-icon>
+      <h3>Land Landings</h3>
+      <p>{{ capsule.land_landings }}</p>
+    </div>
+  </div>
+  <div class="last_update">
+    <h3>LAST UPDATE</h3>
+    <p *ngIf="capsule.last_update">{{ capsule.last_update }}</p>
+    <p *ngIf="!capsule.last_update">None</p>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div>
+  <app-capsules-filter
+    [capsules_status]="capsules_status"
+  ></app-capsules-filter>
+  <div class="capsules-container">
+    <div *ngFor="let capsule of capsules">
+      <app-capsule
+        [ngStyle]="{ display: 'block' }"
+        *ngIf="capsules_filtered_status.indexOf(capsule.status) !== -1"
+        [@cardAnimation]="animationState"
+        [capsule]="capsule"
+      ></app-capsule>
+    </div>
+  </div>
+</div>
