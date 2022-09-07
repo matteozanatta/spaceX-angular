@@ -1,35 +1,39 @@
-<div *ngFor="let rocket of rockets">
-  <div [@scrollCards]="animationState" class="rocketContainer">
-    <div class="rocket__name">
-      <h1>Name</h1>
-      <p>{{ rocket.name }}</p>
-    </div>
-    <div class="rocket__stages">
-      <h1>Stages</h1>
-      <p>{{ rocket.stages }}</p>
-    </div>
-    <div class="rocket__boosters">
-      <h1>Name</h1>
-      <p>{{ rocket.boosters }}</p>
-    </div>
-    <div class="rocket__costPerLaunch">
-      <h1>Cost per launch</h1>
-      <p>{{ rocket.cost_per_launch }}</p>
-    </div>
-    <div class="rocket__successRate">
-      <h1>Success Rate</h1>
-      <p>{{ rocket.success_rate_pct }}</p>
-    </div>
-    <div class="rocket__firstFlight">
-      <h1>First Flight</h1>
-      <p>{{ rocket.first_flight }}</p>
-    </div>
-    <div class="rocket__animation">
-      <img
-        src="assets/img/{{ rocket.name }}.png"
-        class="rocket__animationImage"
-      />
-      <div class="rocket__animationFlame"></div>
+<div class="container">
+  <div *ngFor="let rocket of rockets">
+    <div [@scrollCards]="animationState" class="rocketContainer">
+      <div class="rocketParallaxGroup">
+        <div class="rocket__name">
+          <h1>Name</h1>
+          <p>{{ rocket.name }}</p>
+        </div>
+        <div class="rocket__stages">
+          <h1>Stages</h1>
+          <p>{{ rocket.stages }}</p>
+        </div>
+        <div class="rocket__boosters">
+          <h1>Name</h1>
+          <p>{{ rocket.boosters }}</p>
+        </div>
+        <div class="rocket__costPerLaunch">
+          <h1>Cost per launch</h1>
+          <p>{{ rocket.cost_per_launch }}</p>
+        </div>
+        <div class="rocket__successRate">
+          <h1>Success Rate</h1>
+          <p>{{ rocket.success_rate_pct }}</p>
+        </div>
+        <div class="rocket__firstFlight">
+          <h1>First Flight</h1>
+          <p>{{ rocket.first_flight }}</p>
+        </div>
+        <div class="rocket__animation">
+          <img
+            src="assets/img/{{ rocket.name }}.png"
+            class="rocket__animationImage"
+          />
+          <div class="rocket__animationFlame"></div>
+        </div>
+      </div>
     </div>
   </div>
   <!--
