@@ -15,6 +15,7 @@ import { SpacexAPIService } from 'src/app/services/spacex-api.service';
   templateUrl: './rockets.component.html',
   styleUrls: ['./rockets.component.css'],
   animations: [
+    /*
     trigger('scrollCards', [
       state(
         'initial',
@@ -27,6 +28,7 @@ import { SpacexAPIService } from 'src/app/services/spacex-api.service';
       transition('void => initial', animate('500ms 200ms ease-in-out')),
       transition('initial <=> scroll', animate('500ms ease-in-out')),
     ]),
+  */
   ],
 })
 export class RocketsComponent implements OnInit {
