@@ -4,15 +4,24 @@
     class="rocketParallaxGroup"
   >
     <div
-      [ngClass]="{ bluetoblackBg: i % 2 === 0, blacktoblueBg: i % 2 !== 0 }"
+      [ngClass]="{
+        firstBg: i === 0,
+        secondBg: i === 1,
+        thirdBg: i === 2,
+        fourthBg: i === 3
+      }"
       class="rocket__background"
     ></div>
     <div class="rocket__animation">
       <img
         src="assets/img/{{ rocket.name }}.png"
         class="rocket__animationImage"
+        [@loadRocket]="rocketAnimationState"
       />
-      <div class="rocket__animationFlame"></div>
+      <div
+        class="rocket__animationFlame"
+        [@loadFlameRocket]="flameAnimationState"
+      ></div>
     </div>
     <div class="rocket__infoContainer">
       <div class="rocket__name">
@@ -21,10 +30,19 @@
       </div>
       <div class="rocket__stages">
         <h1>Stages</h1>
-        <p>{{ rocket.stages }}</p>
+        <div class="rocket__stagesGroup">
+          <div *ngIf="rocket.first_stage" class="rocket__stagesFirst">
+            <h2>First Stage</h2>
+            <p>{{ rocket.first_stage.reusable }}</p>
+          </div>
+          <div *ngIf="rocket.second_stage" class="rocket__stagesSecond">
+            <h2>Second Stage</h2>
+            <p>{{ rocket.second_stage.reusable }}</p>
+          </div>
+        </div>
       </div>
       <div class="rocket__boosters">
-        <h1>Name</h1>
+        <h1>Boosters</h1>
         <p>{{ rocket.boosters }}</p>
       </div>
       <div class="rocket__costPerLaunch">
