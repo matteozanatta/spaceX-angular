@@ -56,9 +56,7 @@ export class CapsulesComponent implements OnInit {
   ) {
     this.subscription = this.uiService
       .getCapsulesStatusFilters()
-      .subscribe((response) => {
-        this.capsules_filtered_status = response;
-      });
+      .subscribe((response) => (this.capsules_filtered_status = response));
   }
 
   ngOnInit(): void {

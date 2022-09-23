@@ -25,7 +25,6 @@ import {
   selector: 'app-capsule',
   templateUrl: './capsule.component.html',
   styleUrls: ['./capsule.component.css'],
-  
 })
 export class CapsuleComponent implements OnInit {
   @Input() capsule!: Capsule;
@@ -33,11 +32,7 @@ export class CapsuleComponent implements OnInit {
   faWater = faWater;
   faExplosion = faExplosion;
 
-
   constructor() {}
 
-  ngOnInit(): void {
-   
-  }
-
+  ngOnInit(): void {}
 }

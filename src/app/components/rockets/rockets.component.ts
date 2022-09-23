@@ -9,6 +9,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Rockets } from 'src/app/interfaces/Rockets';
 import { SpacexAPIService } from 'src/app/services/spacex-api.service';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-rockets',
@@ -47,6 +48,7 @@ export class RocketsComponent implements OnInit {
   animationState: String = 'initial';
   rocketAnimationState: String = 'initial';
   flameAnimationState: String = 'initial';
+  faArrowDown = faArrowDown;
 
   @HostListener('window:scroll', [])
   scroll(): void {

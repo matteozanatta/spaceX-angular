@@ -33,11 +33,35 @@
         <div class="rocket__stagesGroup">
           <div *ngIf="rocket.first_stage" class="rocket__stagesFirst">
             <h2>First Stage</h2>
-            <p>{{ rocket.first_stage.reusable }}</p>
+            <h3
+              *ngIf="rocket.first_stage.reusable === true"
+              [ngStyle]="{ color: 'green' }"
+            >
+              Reusable
+            </h3>
+            <h3
+              *ngIf="rocket.first_stage.reusable === false"
+              [ngStyle]="{ color: 'red' }"
+            >
+              Not reusable
+            </h3>
+            <h3>Engines: {{ rocket.first_stage.engines }}</h3>
           </div>
           <div *ngIf="rocket.second_stage" class="rocket__stagesSecond">
             <h2>Second Stage</h2>
-            <p>{{ rocket.second_stage.reusable }}</p>
+            <h3
+              *ngIf="rocket.second_stage.reusable === true"
+              [ngStyle]="{ color: 'green' }"
+            >
+              Reusable
+            </h3>
+            <h3
+              *ngIf="rocket.second_stage.reusable === false"
+              [ngStyle]="{ color: 'red' }"
+            >
+              Not reusable
+            </h3>
+            <h3>Engines: {{ rocket.second_stage.engines }}</h3>
           </div>
         </div>
       </div>
@@ -58,7 +82,13 @@
         <p>{{ rocket.first_flight }}</p>
       </div>
     </div>
+    <fa-icon
+      *ngIf="i === 0"
+      class="bouncingArrow"
+      [icon]="faArrowDown"
+    ></fa-icon>
   </div>
+
   <!--
 name: String;
   type: String;
@@ -94,7 +124,6 @@ name: String;
     };
     thrust_vacuum: {
       kN: Number;
-
       lbf: Number;
     };
   };
